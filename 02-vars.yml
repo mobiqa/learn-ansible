@@ -18,9 +18,6 @@
       vars:
         URL: task.example.com
 
-
-
-
 - name: Declare variable in another file
   hosts: all
   connection: local
