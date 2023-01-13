@@ -12,7 +12,6 @@
 - name: Declare variable at task level
   hosts: all
   connection: local
-
     tasks:
     - name: Declare and Access a variable
       ansible.builtin.debug:
