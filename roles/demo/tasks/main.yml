@@ -5,8 +5,3 @@
 - name: Print HELLO
   ansible.builtin.debug:
     msg: URL == {{URL}}
-
-
-- name: Print HELLO
-  ansible.builtin.debug:
-  msg: DDD == {{URL1}}
