@@ -3,6 +3,7 @@
   connection: local
   vars:
     URL: play.example.com
+    URL1: play.example.com
   tasks:
     - name: Access a variable
       ansible.builtin.debug:
@@ -17,5 +18,9 @@
         msg: URL == {{URL}}
       vars:
        URL: play.example2.com
-  
+  tasks:
+    - name: Access a variable from play level
+      ansible.builtin.debug:
+        msg: URL == {{URL1}}
+
 
