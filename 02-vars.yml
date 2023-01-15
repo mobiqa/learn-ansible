@@ -19,7 +19,7 @@
         msg: URL == {{URL}}
       vars:
        URL: play.example.com
-  tasks:
+  tasks1:
     - name: Access a variable from level
       ansible.builtin.debug:
         msg: URL == {{URL}}
