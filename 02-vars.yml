@@ -18,4 +18,11 @@
         msg: URL == {{URL}}
       vars:
        URL: play.example2.com
-  
+
+  name: Declare variable from inventory level
+  hosts: all
+  connection: local
+  tasks:
+    - name: Declare and access a variable
+      ansible.builtin.debug:
+        msg: URL == {{URL}}
