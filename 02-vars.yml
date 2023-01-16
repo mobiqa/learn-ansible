@@ -8,34 +8,23 @@
       ansible.builtin.debug:
         msg: URL == {{URL}}
 
-- name: Declare variable in another file
-  hosts: all
-  connection: local
-  vars_files:
-    - var.yml
-  tasks:
-    - name: Access variable
-      ansible.builtin.debug:
-        msg: URL == {{URL}}
-## vars_files can also be declared on task level.
-
-- name: Declare variable at Tasks level
+- name: Declare variable at Task level
   hosts: all
   connection: local
   tasks:
-    - name: Declare and access a variable
+    - name: Declare and Access a variable
       ansible.builtin.debug:
         msg: URL == {{URL}}
       vars:
         URL: task.example.com
 
-- name: Declare variable from inventory file
+  name: Declare variable from inventory level
   hosts: all
   connection: local
   tasks:
-    - name: Access variable
+    - name: Declare and access a variable
       ansible.builtin.debug:
-        msg: URL == {{URL}}
+       msg: URL == {{URL}}
 
 - name: Access a fact
   hosts: all
@@ -45,16 +34,14 @@
       ansible.builtin.debug:
         msg: Ansible Host name == {{ansible_fqdn}}
 
-- name: Register a variable
+  name: Register a variable
   hosts: all
   connection: local
   tasks:
-    - name: run a shell command
+    - name: Run a shell command
       ansible.builtin.shell: uptime
       register: out
-    - name: Print out
+    - name: Run a shell command
       ansible.builtin.debug:
-        msg: "{{out.stdout}}"
-    - name: Set a fact
-      ansible.builtin.set_fact:
-        OUTPUT: "{{out.stdout}}"
+        msg: "{{out}}"
+
