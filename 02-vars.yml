@@ -3,27 +3,37 @@
   connection: local
   vars:
     URL: play.example.com
-
   tasks:
     - name: Access a variable
       ansible.builtin.debug:
         msg: URL == {{URL}}
 
-- name: Declare variable at Task level
+- name: Declare variable in another file
   hosts: all
   connection: local
+  vars_files:
+    - var.yml
   tasks:
-    - name: Declare and Access a variable at Task level
+    - name: Access variable
       ansible.builtin.debug:
         msg: URL == {{URL}}
-      vars:
-       URL: play.example2.com
+## vars_files can also be declared on task level.
 
-  name: Declare variable from inventory level
+- name: Declare variable at Tasks level
   hosts: all
   connection: local
   tasks:
     - name: Declare and access a variable
+      ansible.builtin.debug:
+        msg: URL == {{URL}}
+      vars:
+        URL: task.example.com
+
+- name: Declare variable from inventory file
+  hosts: all
+  connection: local
+  tasks:
+    - name: Access variable
       ansible.builtin.debug:
         msg: URL == {{URL}}
 
@@ -33,16 +43,19 @@
   tasks:
     - name: Access fact
       ansible.builtin.debug:
-        msg: Ansible Host name == {{ansible_fqdn}}
+        msg: Anisble Host name == {{ansible_fqdn}}
 
-  name: Register a variable
+- name: Register a variable
   hosts: all
   connection: local
   tasks:
-    - name: Run a shell command
+    - name: run a schell command
       ansible.builtin.shell: uptime
       register: out
-    - name: Run a shell command
+    - name: Print out
       ansible.builtin.debug:
-        msg: "{{out}}"
-
+        msg: "{{out.stdout}}"
+    - name: Set a fact
+      ansible.builtin.set_fact:
+        OUTPUT: "{{out.stdout}}"
+  
