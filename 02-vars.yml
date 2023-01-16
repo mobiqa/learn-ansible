@@ -43,7 +43,7 @@
   tasks:
     - name: Access fact
       ansible.builtin.debug:
-        msg: Anisble Host name == {{ansible_fqdn}}
+        msg: Ansible Host name == {{ansible_fqdn}}
 
 - name: Register a variable
   hosts: all
