@@ -8,23 +8,23 @@
 #      ansible.builtin.debug:
 #        msg: URL == {{URL}}
 
-- name: Declare variable at Task level
-  hosts: all
-  connection: local
-  tasks:
-    - name: Declare and Access a variable
-      ansible.builtin.debug:
-        msg: URL == {{URL}}
-      vars:
-        URL: task.example.com
-#
-#  name: Declare variable from inventory level
+#- name: Declare variable at Task level
 #  hosts: all
 #  connection: local
 #  tasks:
-#    - name: Declare and access a variable
+#    - name: Declare and Access a variable
 #      ansible.builtin.debug:
-#       msg: URL == {{URL}}
+#        msg: URL == {{URL}}
+#      vars:
+#        URL: task.example.com
+#
+  name: Declare variable from inventory level
+  hosts: all
+  connection: local
+  tasks:
+    - name: Declare and access a variable
+      ansible.builtin.debug:
+       msg: URL == {{URL}}
 #
 #- name: Access a fact
 #  hosts: all
