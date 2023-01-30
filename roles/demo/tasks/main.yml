@@ -5,3 +5,7 @@
 - name: Print HELLO
   ansible.builtin.debug:
     msg: URL == {{URL}}
+
+- name: Print HELLO
+  ansible.builtin.debug:
+    msg: URL1 == {{URL}}
