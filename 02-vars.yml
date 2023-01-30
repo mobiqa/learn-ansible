@@ -34,7 +34,7 @@
 #      ansible.builtin.debug:
 #        msg: Ansible Host name == {{ansible_fqdn}}
 
-  name: Register a variable
+- name: Register a variable
   hosts: all
   connection: local
   tasks:
