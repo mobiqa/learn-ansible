@@ -1,22 +1,22 @@
-- name: Declare variable at Play level
-  hosts: all
-  connection: local
-  vars:
-    URL: play.example.com
-  tasks:
-    - name: Access a variable
-      ansible.builtin.debug:
-        msg: URL == {{URL}}
-
-#- name: Declare variable at Task level
+#- name: Declare variable at Play level
 #  hosts: all
 #  connection: local
+#  vars:
+#    URL: play.example.com
 #  tasks:
-#    - name: Declare and Access a variable
+#    - name: Access a variable
 #      ansible.builtin.debug:
 #        msg: URL == {{URL}}
-#      vars:
-#        URL: task.example.com
+
+- name: Declare variable at Task level
+  hosts: all
+  connection: local
+  tasks:
+    - name: Declare and Access a variable
+      ansible.builtin.debug:
+        msg: URL == {{URL}}
+      vars:
+        URL: task.example.com
 #
 #  name: Declare variable from inventory level
 #  hosts: all
