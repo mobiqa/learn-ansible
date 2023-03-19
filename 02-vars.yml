@@ -1,12 +1,12 @@
-#- name: Declare variable at Play level
-#  hosts: all
-#  connection: local
-#  vars:
-#    URL: play.example.com
-#  tasks:
-#    - name: Access a variable
-#      ansible.builtin.debug:
-#        msg: URL == {{URL}}
+- name: Declare variable at Play level
+  hosts: all
+  connection: local
+  vars:
+    URL: play.example.com
+  tasks:
+    - name: Access a variable
+      ansible.builtin.debug:
+        msg: URL == {{URL}}
 
 #- name: Declare variable at Task level
 #  hosts: all
@@ -34,14 +34,14 @@
 #      ansible.builtin.debug:
 #        msg: Ansible Host name == {{ansible_fqdn}}
 
-- name: Register a variable
-  hosts: all
-  connection: local
-  tasks:
-    - name: Run a shell command
-      ansible.builtin.shell: uptime
-      register: out
-    - name: Run a shell command
-      ansible.builtin.debug:
-        msg: "{{out}}"
-
+#- name: Register a variable
+#  hosts: all
+#  connection: local
+#  tasks:
+#    - name: Run a shell command
+#      ansible.builtin.shell: uptime
+#      register: out
+#    - name: Run a shell command
+#      ansible.builtin.debug:
+#        msg: "{{out}}"
+#
