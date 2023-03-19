@@ -18,13 +18,13 @@
       vars:
         URL: task.example.com
 
-#- name: Declare variable from inventory level
-#  hosts: all
-#  connection: local
-#  tasks:
-#    - name: Access a variable
-#      ansible.builtin.debug:
-#       msg: URL == {{URL}}
+- name: Declare variable from inventory level
+  hosts: all
+  connection: local
+  tasks:
+    - name: Access a variable
+      ansible.builtin.debug:
+       msg: URL == {{URL}}
 
 #- name: Access a fact
 #  hosts: all
