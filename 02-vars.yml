@@ -26,22 +26,22 @@
       ansible.builtin.debug:
        msg: URL == {{URL}}
 
-#- name: Access a fact
-#  hosts: all
-#  connection: local
-#  tasks:
-#    - name: Access fact
-#      ansible.builtin.debug:
-#        msg: Ansible Host name == {{ansible_fqdn}}
+- name: Access a fact
+  hosts: all
+  connection: local
+  tasks:
+    - name: Access fact
+      ansible.builtin.debug:
+        msg: Ansible Host name == {{ansible_fqdn}}
 
-#- name: Register a variable
-#  hosts: all
-#  connection: local
-#  tasks:
-#    - name: Run a shell command
-#      ansible.builtin.shell: uptime
-#      register: out
-#    - name: Run a shell command
-#      ansible.builtin.debug:
-#        msg: "{{out}}"
+- name: Register a variable
+  hosts: all
+  connection: local
+  tasks:
+    - name: Run a shell command
+      ansible.builtin.shell: uptime
+      register: out
+    - name: Run a shell command
+      ansible.builtin.debug:
+        msg: "{{out}}"
 #
