@@ -44,4 +44,4 @@
     - name: Run a shell command
       ansible.builtin.debug:
         msg: "{{out}}"
-#
+
